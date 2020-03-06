@@ -7,7 +7,7 @@ class App extends React.Component {
     text: ""
   };
 
-  stream = new EventSource("http://localhost:4000/stream");
+  stream = new EventSource("https://evening-refuge-72540.herokuapp.com/stream");
 
   componentDidMount() {
     this.stream.onmessage = event => {
@@ -25,7 +25,7 @@ class App extends React.Component {
     event.preventDefault();
     try {
       const response = await superagent
-        .post("http://localhost:4000/message")
+        .post("https://evening-refuge-72540.herokuapp.com/message")
         .send({ text: this.state.text });
       console.log(response);
     } catch (error) {
